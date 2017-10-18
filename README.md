@@ -1,5 +1,7 @@
 # vim-built-with-docker
 
+[![Build Status](https://travis-ci.org/AlexandreCarlton/vim-built-with-docker.svg?branch=master)](https://travis-ci.org/AlexandreCarlton/vim-built-with-docker)
+
 An experiment in building Vim inside a CentOS 7 Docker container.
 
 

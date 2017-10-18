@@ -9,4 +9,4 @@ jobs:
       script:
         - make image
         - make install
-        - $HOME/.local/bin/vim --version
+        - test -x $HOME/.local/bin/vim

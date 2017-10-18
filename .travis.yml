@@ -7,5 +7,6 @@ jobs:
   include:
     - stage: Build Vim inside a Docker container
       script:
+        - make image
         - make install
         - $HOME/.local/bin/vim --version

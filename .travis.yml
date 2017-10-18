@@ -1,0 +1,11 @@
+sudo: required
+
+services:
+  - docker
+
+jobs:
+  include:
+    - stage: Build Vim inside a Docker container
+      script:
+        - make install
+        - $HOME/.local/bin/vim --version

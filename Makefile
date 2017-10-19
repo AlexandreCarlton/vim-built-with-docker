@@ -13,12 +13,14 @@ FEATURES := \
 	--without-x
 
 
-all: image vim/$(VERSION)/src/vim
+all: image vim
+.PHONY: all
 
 image:
 	@docker build \
 		--tag=$(USER)/vim-build-dependencies \
 		.
+.PHONY: image
 
 vim/$(VERSION):
 	@mkdir -p vim
@@ -40,13 +42,17 @@ vim/$(VERSION)/src/vim: vim/$(VERSION)
 			$(USER)/vim-build-dependencies \
 				sh -c './configure --prefix=$(PREFIX) $(FEATURES) && make -j'
 
-build-vim: vim/$(VERSION)/src/vim
+vim: vim/$(VERSION)/src/vim
+.PHONY: vim
 
 install: vim/$(VERSION)/src/vim
 	make -C vim/$(VERSION) install
+.PHONY: install
 
 clean:
 	make -C vim/$(VERSION) clean
+.PHONY: clean
 
 uninstall:
 	make -C vim/$(VERSION) uninstall
+.PHONY: uninstall
